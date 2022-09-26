@@ -51,9 +51,13 @@ public class BaseTest {
 		if (browserName.contains("chrome")) {
 			ChromeOptions options = new ChromeOptions();
 			WebDriverManager.chromedriver().setup();
+			
 			if(browserName.contains("headless")){
 			options.addArguments("headless");
-			}		
+			}
+			//chrome options
+			//when browser is trying to execute, it will give respect to this options object and it will see what are the different new settings
+			//I want to focus on
 			driver = new ChromeDriver(options);
 			driver.manage().window().setSize(new Dimension(1440,900));//full screen
 
