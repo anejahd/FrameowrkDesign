@@ -21,6 +21,7 @@ public class StepDefinitionImpl extends BaseTest{
 	public LandingPage landingPage;
 	public ProductCatalogue productCatalogue;
 	public ConfirmationPage confirmationPage;
+	//use Tidy Gherkin
 	@Given("I landed on Ecommerce Page")
 	public void I_landed_on_Ecommerce_Page() throws IOException
 	{
@@ -28,8 +29,9 @@ public class StepDefinitionImpl extends BaseTest{
 		//code
 	}
 
-	
-	@Given("^Logged in with username (.+) and password (.+)$")
+	//.+ and value doesn't matter. generic. 
+	//^ $ cap and $ to represent to entire is regular expression
+	@Given("^Logged in with username (.+) and password (.+)$") 
 	public void logged_in_username_and_password(String username, String password)
 	{
 		productCatalogue = landingPage.loginApplication(username,password);
@@ -52,10 +54,10 @@ public class StepDefinitionImpl extends BaseTest{
 		Assert.assertTrue(match);
 		CheckoutPage checkoutPage = cartPage.goToCheckout();
 		checkoutPage.selectCountry("india");
-		 confirmationPage = checkoutPage.submitOrder();
+		confirmationPage = checkoutPage.submitOrder();
 	}
 	
-
+	//if the string is data is coming from example section the pure example
     @Then("{string} message is displayed on ConfirmationPage")
     public void message_displayed_confirmationPage(String string)
     {
